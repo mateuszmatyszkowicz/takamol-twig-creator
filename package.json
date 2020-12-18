@@ -1,0 +1,20 @@
+{
+  "name": "node-twig",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run serve | npm run sync",
+    "sync": "browser-sync start --proxy \"localhost:3000\" --files \"views/*.twig\" --no-ui --port 5000 --browser \"google-chrome\" ",
+    "serve": "nodemon --watch views -e twig ./server.js",
+    "stop": "pm2 stop all"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "twig": "^1.12.0",
+    "pm2": "^3.1.3"
+  }
+}

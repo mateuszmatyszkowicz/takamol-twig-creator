@@ -1,0 +1,100 @@
+{#
+    unit: Unit
+    questions: QuestionReadModel[]
+    allUnchecked: bool
+    files: [] ex: ['type': [File, File, ...], ...]
+#}
+<html>
+	<head>
+		<style>
+			body {
+				font-family: Arial;
+				margin: 0 30px;
+			}
+			p,
+			td,
+			h1,
+			h2,
+			span {
+				font-size: 10pt;
+				text-align: justify;
+			}
+			h1 {
+				text-align: center;
+				text-decoration: underline;
+				margin: 20px;
+			}
+			h2 {
+				margin: 20px 0;
+			}
+			table,
+			th,
+			td {
+				border: 1px solid grey;
+				border-collapse: collapse;
+			}
+			.pu20__details-box--bold {
+				font-weight: bold;
+			}
+			.pu20__box--grey {
+				background-color: #bfbfbf;
+				border: solid 1px black;
+			}
+			.pu20__details-box {
+				min-height: 100px;
+				border: solid 1px black;
+				margin: 10px 0;
+			}
+			.pu20__details-box p {
+				margin: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="pu20__box--grey">
+			<h1>OVERRIDING INTERESTS QUESTIONNAIR</h1>
+		</div>
+		<p>The Land Registration Act 123 came int   o force on the 13th October 2003.  It places an obligation on a buyer to disclose to the Land Registry certain unregistered rights or interests that affect the property.  These rights, called "Overriding Interests", are rights or liabilities in favour of third parties which burden the property but may not necessarily be revealed on the Deeds.<p/></p>
+		<p>It is necessary for sellers to disclose to buyers all Overriding Interests of which they are aware or suspect may exist.  Failure to disclose such an interest can result in an action for damages against the seller.<p/></p>
+		<p>Please consider the list below and tick the box opposite any right or liability which may affect the property.  Most (if not all) will NOT apply.  If any do apply, please give details in the box provided.</p>
+		<h2>PROPERTY ADDRESS:  29 Wood Lane, Caterham, CR3 5RT</h2>
+		<table>
+			<tbody>
+				{% for i in 0..9 %}
+					<tr>
+						<td>{{ ('question.'~questions[i].title)|trans }}</td>
+						<td><input type="checkbox" {{ questions[i].checked ? 'checked' : '' }} clic></td>
+						<td>{{ ('question.'~questions[i+10].title)|trans }}</td>
+						<td><input type="checkbox" {{ questions[i+10].checked ? 'checked' : '' }}></td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		<h2>IF NONE OF THE ABOVE  ARE APPLICABLE, PLEASE TICK THIS BOX
+			<input type="checkbox" {{ allUnchecked ? 'checked' : '' }}></h2>
+		<div class="pu20__details-box">
+			<p>Details of any interests ticked</p>
+			{% for question in questions %}
+				{% if question.checked and question.description %}
+					<p>
+						<span class="pu20__details-box--bold">{{ ('question.'~question.title)|trans }}
+							marked
+							{{ question.checked ? 'YES' : 'NO' }}</span>:
+						{{ question.description }}<p/>
+					{% endif %}
+				{% endfor %}
+			</div>
+			files:<br>
+			{% for k, typeFiles in files %}
+				{{ ('question.'~k)|trans }}:<br>
+				{% for file in typeFiles %}
+					{{ file.name }}<br/>
+					{% if file.extension == 'jpg' %}
+						<img src="{{ file.presignedUrl }}" style="max-width: 100%"><br/>
+					{% endif %}
+				{% endfor %}
+			{% endfor %}
+			<br/>
+			<br/></body>
+	</body>
+</html>
