@@ -32,7 +32,24 @@ app.get("/", (req, res) => {
 });
 
 app.get("/invoice", (req, res) => {
-  res.render("invoice.twig", {});
+  res.render("invoice.twig", {
+    purchase_uuid: "08fc5edc-1840-4b84-a8bd-8fb903e8a5f7",
+    id: 1,
+    status: "paid",
+    created_at: "2020-12-28T13:05:41+03:00",
+    amount: 23000,
+    expired_at: "2020-11-22T13:05:41+03:00",
+    sadad_number: null,
+    ic_company_identity: "15-1770645",
+    payment_method: "sadad",
+    checkout_url: null,
+    number_of_notices: 1000,
+    notices_cost: 40000,
+    subtotal: 40000,
+    added_tax: 15000,
+    total: 55000,
+    company_name: 'Company Name'
+  });
 });
 
 app.get("/notice", (req, res) => {
