@@ -6,6 +6,14 @@ twig.extendFilter("trans", function (value) {
   return value;
 });
 
+twig.extendFilter("arabicDigits", function (value) {
+  return value;
+});
+
+twig.extendFilter("hijiriDate", function (value) {
+  return value;
+});
+
 app.set("view engine", "twig");
 app.set("twig options", {
   layout: false,
@@ -37,14 +45,16 @@ app.get("/invoice", (req, res) => {
     created_at: "2020-12-28T13:05:41+03:00",
     amount: 23000,
     expired_at: "2020-11-22T13:05:41+03:00",
-    sadad_number: null,
-    payment_method: "sadad",
+    sadad_number: '123412',
+    payment_method: "qiwa",
     number_of_notices: 1000,
-    notices_cost: 40000,
-    subtotal: 40000,
-    added_tax: 15000,
-    total: 55000,
-    company_name: 'Company Name'
+    notices_cost: 400000,
+    subtotal: 40000000,
+    added_tax: 150,
+    total: 50,
+    company_name_en: 'Company Name',
+    company_name_ar: 'Company Name',
+    tax_number: 12314123
   });
 });
 
