@@ -24,19 +24,7 @@ app.set("twig options", {
 app.engine("twig", twig.renderFile);
 
 app.get("/", (req, res) => {
-  res.render("index.twig", {
-    questions: [
-      {
-        title: "asda",
-        checked: false,
-      },
-      {
-        title: "asda",
-        checked: true,
-        description: "asdasd",
-      },
-    ],
-  });
+  res.render("index.twig");
 });
 
 app.get("/invoice", (req, res) => {
