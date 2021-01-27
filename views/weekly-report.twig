@@ -1,0 +1,122 @@
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Weekly report</title>
+    <style>
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        color: #272C2D;
+        width: auto;
+      }
+
+      p {
+        margin: 10pt 0;
+      }
+
+      .font-bold {
+        font-weight: 700;
+      }
+
+      .table-header {
+        font-weight: 600;
+        font-size: 10pt;
+      }
+
+      table#weekly-report {
+        font-size: 10pt;
+        border-collapse: collapse;
+      }
+
+			 .table-cell {
+        padding: 11.5pt;
+      }
+
+      .table-cell:not(:first-child) {
+        border-right: 1px solid #e7e6e6;
+      }
+
+      table#weekly-report tbody {
+        color: #4E555E;
+      }
+
+      table#weekly-report tbody .table-row:nth-child(2n-1) {
+        background-color: rgba(241, 244, 247, 0.5);
+      }
+
+      table#weekly-report .border-none {
+        border: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="pdf-body">
+      <table id="weekly-report" style="width: 100%; ">
+        <thead align="center">
+          <tr style="color: #4e555e;">
+            <th class="table-header">
+              <div>#</div>
+            </th>
+            <th class="table-header table-cell">
+              <div>رقم شركة الاستقدام</div>
+            </th>
+            <th class="table-header table-cell">
+              <div>اسم شركة الاستقدام</div>
+            </th>
+            <th class="table-header table-cell">
+              <div>إجمالي عمالة الشركة</div>
+            </th>
+            <th class="table-header table-cell">
+              <div>إجمالي العمالة المعارة</div>
+            </th>
+            <th class="table-header table-cell">
+              <div>إجمالي العمالة الغير معارة</div>
+            </th>
+            <th class="table-header table-cell">
+              <div>المؤشر الأسبوعي</div>
+            </th>
+            <th class="table-header table-cell">
+              <div>المؤشر التراكمي</div>
+            </th>
+          </tr>
+        </thead>
+        <tbody align="center">
+          {% for report in weeklyReport %}
+            <tr class="table-row">
+              <td class="table-cell">
+                {{ loop.index }}
+              </td>
+              <td class="table-cell">
+                {{ report.icIdentity }}
+              </td>
+              <td class="table-cell">
+                {{ report.icName }}
+              </td>
+              <td class="table-cell">
+                {{ report.numberOfLaborers }}
+              </td>
+              <td class="table-cell">
+                {{ report.leasedLaborers }}
+              </td>
+              <td class="table-cell">
+                {{ report.unleasedLaborers }}
+              </td>
+              <td class="table-cell">
+                {{ report.weeklyIndicator }}%
+              </td>
+              <td class="table-cell">
+                {{ report.monthlyIndicator }}%
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
