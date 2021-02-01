@@ -14,6 +14,14 @@ twig.extendFilter("hijiriDate", function (value) {
   return value;
 });
 
+twig.extendFilter("zeroToDash", function (value) {
+  if (value == 0) {
+    return '-';
+  } else {
+    return value;
+  }
+});
+
 app.set("view engine", "twig");
 app.set("twig options", {
   layout: false,
@@ -46,6 +54,8 @@ app.get("/invoice", (req, res) => {
   });
 });
 
+
+// WEEKLY REPORT
 app.get("/weekly-report", (req, res) => {
   res.render("weekly-report.twig", {
     'weeklyReport': [
@@ -87,7 +97,7 @@ app.get("/weekly-report", (req, res) => {
       },
       {
         'icIdentity': '2-3333',
-        'icName': 'Bank of America5',
+        'icName': 'ة والخدمات للاستقدام التوظيف ابدال شركة فر',
         'numberOfLaborers': 1267,
         'leasedLaborers': 973,
         'unleasedLaborers': 294,
@@ -230,6 +240,116 @@ app.get("/weekly-report-header", (req, res) => {
 
 app.get("/weekly-report-footer", (req, res) => {
   res.render("weekly-report-footer.twig", {});
+});
+
+
+// MONTHLY REPORT
+app.get("/monthly-report-header", (req, res) => {
+  res.render("monthly-report-header.twig", {});
+});
+
+app.get("/monthly-report-footer", (req, res) => {
+  res.render("monthly-report-footer.twig", {});
+});
+
+const details = [
+  {
+    'icName': 'Bank of America',
+    'icIdentity': '1-2345',
+    'paymentGateway': 'Qiwa',
+    'Month': 'December',
+    'amountPaidVat': 11000,
+    'amountPaid': 10000,
+    'notices': 5,
+    'usedNotices': 0,
+  },
+  {
+    'icName': 'Bank of America',
+    'icIdentity': '1-2345',
+    'paymentGateway': 'Qiwa',
+    'Month': 'December',
+    'amountPaidVat': 11000,
+    'amountPaid': 10000,
+    'notices': 5,
+    'usedNotices': 0,
+  },
+  {
+    'icName': 'Bank of America',
+    'icIdentity': '1-2345',
+    'paymentGateway': 'Qiwa',
+    'Month': 'December',
+    'amountPaidVat': 11000,
+    'amountPaid': 10000,
+    'notices': 5,
+    'usedNotices': 0,
+  },
+  {
+    'icName': 'Bank of America',
+    'icIdentity': '1-2345',
+    'paymentGateway': 'Qiwa',
+    'Month': 'December',
+    'amountPaidVat': 11000,
+    'amountPaid': 10000,
+    'notices': 5,
+    'usedNotices': 0,
+  },
+  {
+    'icIdentity': '1-2345',
+    'paymentGateway': 'Qiwa',
+    'Month': 'December',
+    'amountPaidVat': 11000,
+    'amountPaid': 10000,
+    'notices': 5,
+    'usedNotices': 0,
+  }
+];
+
+app.get("/monthly-report", (req, res) => {
+  res.render("monthly-report.twig", {
+    'monthlyReport': [
+      {
+        'icName': 'Bank of America',
+        'total': {
+          'amountPaidVat': 57500,
+          'amountPaid': 50000,
+          'notices': 2500,
+          'usedNotices': 123,
+        },
+        'details': details
+      },
+      {
+        'icName': 'Bank of America',
+        'total': {
+          'amountPaidVat': 57500,
+          'amountPaid': 50000,
+          'notices': 2500,
+          'usedNotices': 123,
+        },
+        'details': details
+      },
+      {
+        'icName': 'Bank of America',
+        'total': {
+          'amountPaidVat': 57500,
+          'amountPaid': 50000,
+          'notices': 2500,
+          'usedNotices': 123,
+        },
+        'details': details
+      },
+
+      {
+        'icName': 'Bank of America',
+        'total': {
+          'amountPaidVat': 57500,
+          'amountPaid': 50000,
+          'notices': 2500,
+          'usedNotices': 123,
+        },
+        'details': details
+      }
+    ]
+  });
 });
 
 
