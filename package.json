@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run serve | npm run sync",
-    "sync": "browser-sync start --proxy \"localhost:3000\" --files \"views/*.twig\" --no-ui --port 5000 --browser \"google-chrome\" ",
+    "sync": "browser-sync start --proxy \"localhost:3000\" --files \"views\" --no-ui --port 5000 --browser \"google-chrome\" ",
     "serve": "nodemon --watch views -e twig ./server.js",
     "stop": "pm2 stop all"
   },
