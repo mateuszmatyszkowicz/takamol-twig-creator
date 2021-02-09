@@ -256,7 +256,7 @@ const details = [
   {
     'icName': 'Bank of America',
     'icIdentity': '1-2345',
-    'paymentGateway': 'Qiwa',
+    'paymentMethod': 'Qiwa',
     'Month': 'December',
     'amountPaidVat': 11000,
     'amountPaid': 10000,
@@ -266,36 +266,7 @@ const details = [
   {
     'icName': 'Bank of America',
     'icIdentity': '1-2345',
-    'paymentGateway': 'Qiwa',
-    'Month': 'December',
-    'amountPaidVat': 11000,
-    'amountPaid': 10000,
-    'notices': 5,
-    'usedNotices': 0,
-  },
-  {
-    'icName': 'Bank of America',
-    'icIdentity': '1-2345',
-    'paymentGateway': 'Qiwa',
-    'Month': 'December',
-    'amountPaidVat': 11000,
-    'amountPaid': 10000,
-    'notices': 5,
-    'usedNotices': 0,
-  },
-  {
-    'icName': 'Bank of America',
-    'icIdentity': '1-2345',
-    'paymentGateway': 'Qiwa',
-    'Month': 'December',
-    'amountPaidVat': 11000,
-    'amountPaid': 10000,
-    'notices': 5,
-    'usedNotices': 0,
-  },
-  {
-    'icIdentity': '1-2345',
-    'paymentGateway': 'Qiwa',
+    'paymentMethod': 'Qiwa',
     'Month': 'December',
     'amountPaidVat': 11000,
     'amountPaid': 10000,
@@ -304,51 +275,143 @@ const details = [
   }
 ];
 
+const details2 = [
+  {
+    'icName': 'Bank of America',
+    'icIdentity': '1-2345',
+    'paymentMethod': 'Qiwa',
+    'Month': 'December',
+    'amountPaidVat': 11000,
+    'amountPaid': 10000,
+    'notices': 5,
+    'usedNotices': 0,
+  },
+  {
+    'icName': 'Bank of America',
+    'icIdentity': '1-2345',
+    'paymentMethod': 'Qiwa',
+    'Month': 'December',
+    'amountPaidVat': 11000,
+    'amountPaid': 10000,
+    'notices': 5,
+    'usedNotices': 0,
+  },
+  {
+    'icIdentity': '1-2345',
+    'paymentMethod': 'Qiwa',
+    'Month': 'December',
+    'amountPaidVat': 11000,
+    'amountPaid': 10000,
+    'notices': 5,
+    'usedNotices': 0,
+  }
+]
+
+const details3 = [
+  {
+    'icIdentity': '1-2345',
+    'paymentMethod': 'Qiwa',
+    'Month': 'December',
+    'amountPaidVat': 11000,
+    'amountPaid': 10000,
+    'notices': 5,
+    'usedNotices': 0,
+  }
+]
+
 app.get("/monthly-report", (req, res) => {
   res.render("monthly-report.twig", {
     'monthlyReport': [
       {
         'icName': 'Bank of America',
-        'total': {
-          'amountPaidVat': 57500,
-          'amountPaid': 50000,
-          'notices': 2500,
-          'usedNotices': 123,
-        },
-        'details': details
+        'icIdentity': '1-2345',
+        'totalPaidGross': 57500,
+        'totalPaidNet': 50000,
+        'totalBoughtNotices': 2500,
+        'totalUsedNotices': 123,
+        'purchases': details
       },
       {
         'icName': 'Bank of America',
-        'total': {
-          'amountPaidVat': 57500,
-          'amountPaid': 50000,
-          'notices': 2500,
-          'usedNotices': 123,
-        },
-        'details': details
+        'icIdentity': '1-2345',
+        'totalPaidGross': 57500,
+        'totalPaidNet': 50000,
+        'totalBoughtNotices': 2500,
+        'totalUsedNotices': 123,
+        'purchases': details2
       },
       {
         'icName': 'Bank of America',
-        'total': {
-          'amountPaidVat': 57500,
-          'amountPaid': 50000,
-          'notices': 2500,
-          'usedNotices': 123,
-        },
-        'details': details
+        'icIdentity': '1-2345',
+        'totalPaidGross': 57500,
+        'totalPaidNet': 50000,
+        'totalBoughtNotices': 2500,
+        'totalUsedNotices': 123,
+        'purchases': details3
       },
 
       {
         'icName': 'Bank of America',
-        'total': {
-          'amountPaidVat': 57500,
-          'amountPaid': 50000,
-          'notices': 2500,
-          'usedNotices': 123,
-        },
-        'details': details
+        'icIdentity': '1-2345',
+        'totalPaidGross': 57500,
+        'totalPaidNet': 50000,
+        'totalBoughtNotices': 2500,
+        'totalUsedNotices': 123,
+        'purchases': details3
       }
     ]
+  });
+});
+
+
+// DAILY REPORT
+app.get("/daily-report-header", (req, res) => {
+  res.render("daily-report-header.twig", {
+    'date': '21/01/2021',
+  });
+});
+
+app.get("/daily-report-footer", (req, res) => {
+  res.render("daily-report-footer.twig", {});
+});
+
+app.get("/daily-report", (req, res) => {
+  res.render("daily-report.twig", {
+    'date': '21/01/2021', // Yesterday’s date
+    'noticesYesterday': {
+      'premium': 231,
+      'standard': 452,
+      'date': '21/01/2021',
+    },
+    'notices2DaysAgo': {
+      'premium': 349,
+      'standard': 502,
+      'date': '20/01/2021',
+    },
+    'notices3DaysAgo': {
+      'premium': 192,
+      'standard': 240,
+      'date': '19/01/2021',
+    },
+    'noticesTotal': {
+      'premium': 14400,
+      'standard': 12300,
+      'startDate': '01/01/2020',
+      'endDate': '21/01/2021',
+    },
+    'packagesDaily': 45,
+    'packagesTotal': {
+      'value': 520,
+      'startDate': '01/01/2020',
+      'endDate': '21/01/2021',
+    },
+    'contractProposals': {
+      'accepted': 120,
+      'rejected': 52,
+      'expired': 10,
+      'pending': 64,
+      'date': '21/01/2021',
+    }
   });
 });
 

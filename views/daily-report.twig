@@ -1,0 +1,272 @@
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="UTF-8"/>
+		<title>Daily report</title>
+		<style>
+
+			html,
+			body {
+				margin: 0;
+				padding: 0;
+			}
+
+			body {
+				color: #272C2D;
+				width: auto;
+			}
+
+			p {
+				margin-bottom: 10pt;
+			}
+
+			table#daily-report {
+        width: 100%;
+      }
+
+			.table-cell-box {
+				width: 30%;
+				padding-bottom: 20pt;
+			}
+
+			.table-cell-box:first-child {
+				padding-right: 25pt;
+			}
+
+			.table-cell-box:nth-child(3) {
+				padding-left: 25pt;
+			}
+
+			.table-cell-box table {
+				width: 100%;
+			}
+
+			.box-header {
+				font-weight: 600;
+				font-size: 10pt;
+			}
+
+			.box {
+				text-align: center;
+				border: 1pt solid #e7e6e6;
+				border-radius: 3pt;
+				border-collapse: separate;
+				border-spacing: 0 5pt;
+				box-shadow: 1pt 1pt 6pt 0 rgba(0,0,0,0.08);
+			}
+
+			.box th {
+				height: 50pt;
+				font-size: 10pt;
+				border-bottom: 1pt solid #e7e6e6;
+				padding: 11.5pt;
+				font-weight: normal;
+				text-transform: uppercase;
+			}
+
+			.box-cell {
+				padding: 8pt;
+				height: 85pt;
+			}
+
+			.box-cell:not(:last-child) {
+				border-right: 1pt solid #e7e6e6;
+			}
+
+			.box-cell-text {
+				font-size: 10pt;
+			}
+
+			.box-cell-value {
+				font-size: 25pt;
+				color: #11266D;
+				font-weight: 600;
+			}
+
+			.box-contract-proposals .box{
+				width: 60%;
+			}
+
+			.font-bold {
+				font-weight: 700;
+			}
+
+		</style>
+	</head>
+
+	<body>
+		<div class="pdf-body">
+			<table id="daily-report">
+
+				{# FIRST ROW #}
+				<tr class="table-row">
+					<td class="table-cell-box" align="center">
+						<table class="box">
+							<thead>
+								<th colspan="2">
+									Number of issued notices<br/>
+									<span class="font-bold box-header-date">{{ noticesYesterday.date }}</span>
+								</th>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="box-cell">
+										<p class="box-cell-text">Premium</p>
+										<div class="box-cell-value">{{ noticesYesterday.premium|number_format('0', '.', ' ') }}</div>
+									</td>
+									<td class="box-cell">
+										<p class="box-cell-text">Standard</p>
+										<div class="box-cell-value">{{ noticesYesterday.standard|number_format('0', '.', ' ') }}</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+					<td class="table-cell-box" align="center">
+						<table class="box">
+							<thead>
+								<th colspan="2">
+									Number of issued notices<br/>
+									<span class="font-bold box-header-date">{{ notices2DaysAgo.date }}</span>
+								</th>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="box-cell">
+										<p class="box-cell-text">Premium</p>
+										<div class="box-cell-value">{{ notices2DaysAgo.premium|number_format('0', '.', ' ') }}</div>
+									</td>
+									<td class="box-cell">
+										<p class="box-cell-text">Standard</p>
+										<div class="box-cell-value">{{ notices2DaysAgo.standard|number_format('0', '.', ' ') }}</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+					<td class="table-cell-box" align="center">
+						<table class="box">
+							<thead>
+								<th colspan="2">
+									Number of issued notices<br/>
+									<span class="font-bold box-header-date">{{ notices3DaysAgo.date }}</span>
+								</th>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="box-cell">
+										<p class="box-cell-text">Premium</p>
+										<div class="box-cell-value">{{ notices3DaysAgo.premium|number_format('0', '.', ' ') }}</div>
+									</td>
+									<td class="box-cell">
+										<p class="box-cell-text">Standard</p>
+										<div class="box-cell-value">{{ notices3DaysAgo.standard|number_format('0', '.', ' ') }}</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+
+				{# SECOND ROW #}
+				<tr class="table-row">
+					<td class="table-cell-box" align="center">
+						<table class="box">
+							<thead>
+								<th colspan="2">
+									total number of issued notices from lauching
+									<br/>
+									the system ({{ noticesTotal.startDate }}
+									-
+									{{ noticesTotal.endDate }})
+								</th>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="box-cell">
+										<p class="box-cell-text">Premium</p>
+										<div class="box-cell-value">{{ noticesTotal.premium|number_format('0', '.', ' ') }}</div>
+									</td>
+									<td class="box-cell">
+										<p class="box-cell-text">Standard</p>
+										<div class="box-cell-value">{{ noticesTotal.standard|number_format('0', '.', ' ') }}</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+					<td class="table-cell-box" align="center">
+						<table class="box">
+							<thead>
+								<th colspan="2">
+									Amount of packages purchased daily
+								</th>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="box-cell">
+										<div class="box-cell-value">{{ packagesDaily|number_format('0', '.', ' ') }}</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+					<td class="table-cell-box" align="center">
+						<table class="box">
+							<thead>
+								<th colspan="2">
+									Amount of packages from the lauching system<br/>
+									({{ packagesTotal.startDate }}
+									-
+									{{ packagesTotal.endDate }})
+								</th>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="box-cell">
+										<div class="box-cell-value">{{ packagesTotal.value|number_format('0', '.', ' ') }}</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+
+
+				{# THIRD ROW #}
+				<tr class="table-row">
+					<td colspan="3" class="box-contract-proposals" align="center">
+						<table class="box">
+							<thead>
+								<th colspan="4">
+									contract proposals
+									<br/>
+									<span class="font-bold box-header-date">{{ contractProposals.date }}</span>
+								</th>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="box-cell">
+										<p class="box-cell-text">Accepted</p>
+										<div class="box-cell-value">{{ contractProposals.accepted|number_format('0', '.', ' ') }}</div>
+									</td>
+									<td class="box-cell">
+										<p class="box-cell-text">Rejected</p>
+										<div class="box-cell-value">{{ contractProposals.rejected|number_format('0', '.', ' ') }}</div>
+									</td>
+									<td class="box-cell">
+										<p class="box-cell-text">Expired</p>
+										<div class="box-cell-value">{{ contractProposals.expired|number_format('0', '.', ' ') }}</div>
+									</td>
+									<td class="box-cell">
+										<p class="box-cell-text">Pending</p>
+										<div class="box-cell-value">{{ contractProposals.pending|number_format('0', '.', ' ') }}</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>
