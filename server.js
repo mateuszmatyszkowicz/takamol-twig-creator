@@ -59,17 +59,17 @@ app.get("/invoice", (req, res) => {
 const weeklyReport = require('./data/weekly-report')
 
 app.get("/weekly-report", (req, res) => {
-  res.render("weekly-report.twig", {
+  res.render("weekly-report/weekly-report.twig", {
     'weeklyReport': weeklyReport.data,
   });
 });
 
 app.get("/weekly-report-header", (req, res) => {
-  res.render("weekly-report-header.twig", {});
+  res.render("weekly-report/weekly-report-header.twig", {});
 });
 
 app.get("/weekly-report-footer", (req, res) => {
-  res.render("weekly-report-footer.twig", {});
+  res.render("weekly-report/weekly-report-footer.twig", {});
 });
 
 
@@ -77,16 +77,15 @@ app.get("/weekly-report-footer", (req, res) => {
 const monthlyReport = require('./data/monthly-report')
 
 app.get("/monthly-report-header", (req, res) => {
-  res.render("monthly-report-header.twig", {});
+  res.render("monthly-report/monthly-report-header.twig", {});
 });
 
 app.get("/monthly-report-footer", (req, res) => {
-  res.render("monthly-report-footer.twig", {});
+  res.render("monthly-report/monthly-report-footer.twig", {});
 });
 
-
 app.get("/monthly-report", (req, res) => {
-  res.render("monthly-report.twig", {
+  res.render("monthly-report/monthly-report.twig", {
     'monthlyReport': monthlyReport.data,
   });
 });
@@ -94,17 +93,17 @@ app.get("/monthly-report", (req, res) => {
 
 // DAILY REPORT
 app.get("/daily-report-header", (req, res) => {
-  res.render("daily-report-header.twig", {
+  res.render("daily-report/daily-report-header.twig", {
     'date': '21/01/2021',
   });
 });
 
 app.get("/daily-report-footer", (req, res) => {
-  res.render("daily-report-footer.twig", {});
+  res.render("daily-report/daily-report-footer.twig", {});
 });
 
 app.get("/daily-report", (req, res) => {
-  res.render("daily-report.twig", {
+  res.render("daily-report/daily-report.twig", {
     'date': '21/01/2021', // Yesterday’s date
     'noticesYesterday': {
       'premium': 231,

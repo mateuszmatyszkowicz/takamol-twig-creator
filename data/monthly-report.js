@@ -2,7 +2,7 @@ const details = [
   {
     'icName': 'Bank of America',
     'icIdentity': '1-2345',
-    'paymentMethod': 'Qiwa',
+    'paymentGateway': 'Qiwa',
     'Month': 'December',
     'amountPaidVat': 11000,
     'amountPaid': 10000,
@@ -12,7 +12,7 @@ const details = [
   {
     'icName': 'Bank of America',
     'icIdentity': '1-2345',
-    'paymentMethod': 'Qiwa',
+    'paymentGateway': 'Qiwa',
     'Month': 'December',
     'amountPaidVat': 11000,
     'amountPaid': 10000,
@@ -25,7 +25,7 @@ const details2 = [
   {
     'icName': 'Bank of America',
     'icIdentity': '1-2345',
-    'paymentMethod': 'Qiwa',
+    'paymentGateway': 'Qiwa',
     'Month': 'December',
     'amountPaidVat': 11000,
     'amountPaid': 10000,
@@ -35,7 +35,7 @@ const details2 = [
   {
     'icName': 'Bank of America',
     'icIdentity': '1-2345',
-    'paymentMethod': 'Qiwa',
+    'paymentGateway': 'Qiwa',
     'Month': 'December',
     'amountPaidVat': 11000,
     'amountPaid': 10000,
@@ -44,7 +44,7 @@ const details2 = [
   },
   {
     'icIdentity': '1-2345',
-    'paymentMethod': 'Qiwa',
+    'paymentGateway': 'Qiwa',
     'Month': 'December',
     'amountPaidVat': 11000,
     'amountPaid': 10000,
@@ -56,7 +56,7 @@ const details2 = [
 const details3 = [
   {
     'icIdentity': '1-2345',
-    'paymentMethod': 'Qiwa',
+    'paymentGateway': 'Qiwa',
     'Month': 'December',
     'amountPaidVat': 11000,
     'amountPaid': 10000,
@@ -69,40 +69,42 @@ module.exports = {
   data: [
     {
       'icName': 'Bank of America',
-      'icIdentity': '1-2345',
-      'totalPaidGross': 57500,
-      'totalPaidNet': 50000,
-      'totalBoughtNotices': 2500,
-      'totalUsedNotices': 123,
-      'purchases': details
+      'total': {
+        'amountPaidVat': 57500,
+        'amountPaid': 50000,
+        'notices': 2500,
+        'usedNotices': 123,
+      },
+      'details': details
     },
     {
       'icName': 'Bank of America',
-      'icIdentity': '1-2345',
-      'totalPaidGross': 57500,
-      'totalPaidNet': 50000,
-      'totalBoughtNotices': 2500,
-      'totalUsedNotices': 123,
-      'purchases': details2
+      'total': {
+        'amountPaidVat': 57500,
+        'amountPaid': 50000,
+        'notices': 2500,
+        'usedNotices': 123,
+      },
+      'details': details
     },
     {
       'icName': 'Bank of America',
-      'icIdentity': '1-2345',
-      'totalPaidGross': 57500,
-      'totalPaidNet': 50000,
-      'totalBoughtNotices': 2500,
-      'totalUsedNotices': 123,
-      'purchases': details3
+      'total': {
+        'amountPaidVat': 57500,
+        'amountPaid': 50000,
+        'notices': 2500,
+        'usedNotices': 123,
+      },
+      'details': details
     },
-
     {
       'icName': 'Bank of America',
-      'icIdentity': '1-2345',
-      'totalPaidGross': 57500,
-      'totalPaidNet': 50000,
-      'totalBoughtNotices': 2500,
-      'totalUsedNotices': 123,
-      'purchases': details3
+      'total': {
+        'amountPaidVat': 57500,
+        'amountPaid': 50000,
+        'notices': 2500,
+        'usedNotices': 123,
+      }
     }
   ]
 };
