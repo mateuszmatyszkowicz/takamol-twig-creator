@@ -56,181 +56,11 @@ app.get("/invoice", (req, res) => {
 
 
 // WEEKLY REPORT
+const weeklyReport = require('./data/weekly-report')
+
 app.get("/weekly-report", (req, res) => {
   res.render("weekly-report.twig", {
-    'weeklyReport': [
-      {
-        'icIdentity': '1-2345',
-        'icName': 'Bank of America',
-        'numberOfLaborers': 1267,
-        'leasedLaborers': 973,
-        'unleasedLaborers': 294,
-        'weeklyIndicator': 83,
-        'monthlyIndicator': 76
-      },
-      {
-        'icIdentity': '4-578',
-        'icName': 'Bank of America2',
-        'numberOfLaborers': 1267,
-        'leasedLaborers': 973,
-        'unleasedLaborers': 294,
-        'weeklyIndicator': 83,
-        'monthlyIndicator': 76
-      },
-      {
-        'icIdentity': '2-246345',
-        'icName': 'Bank of America3',
-        'numberOfLaborers': 1267,
-        'leasedLaborers': 973,
-        'unleasedLaborers': 294,
-        'weeklyIndicator': 83,
-        'monthlyIndicator': 76
-      },
-      {
-        'icIdentity': '2-232332',
-        'icName': 'Bank of America4',
-        'numberOfLaborers': 1267,
-        'leasedLaborers': 973,
-        'unleasedLaborers': 294,
-        'weeklyIndicator': 83,
-        'monthlyIndicator': 76
-      },
-      {
-        'icIdentity': '2-3333',
-        'icName': 'ة والخدمات للاستقدام التوظيف ابدال شركة فر',
-        'numberOfLaborers': 1267,
-        'leasedLaborers': 973,
-        'unleasedLaborers': 294,
-        'weeklyIndicator': 83,
-        'monthlyIndicator': 76
-      },
-      {
-        'icIdentity': '2-123321',
-        'icName': 'Bank of America6',
-        'numberOfLaborers': 1267,
-        'leasedLaborers': 973,
-        'unleasedLaborers': 294,
-        'weeklyIndicator': 83,
-        'monthlyIndicator': 76
-      },
-      {
-        'icIdentity': '2-1111',
-        'icName': 'Bank of America7',
-        'numberOfLaborers': 1267,
-        'leasedLaborers': 973,
-        'unleasedLaborers': 294,
-        'weeklyIndicator': 83,
-        'monthlyIndicator': 76
-      },
-      {
-        'icIdentity': '2-321',
-        'icName': 'Bank of America8',
-        'numberOfLaborers': 1267,
-        'leasedLaborers': 973,
-        'unleasedLaborers': 294,
-        'weeklyIndicator': 83,
-        'monthlyIndicator': 76
-      },
-      {
-        'icIdentity': '2-898',
-        'icName': 'Bank of America9',
-        'numberOfLaborers': 1267,
-        'leasedLaborers': 973,
-        'unleasedLaborers': 294,
-        'weeklyIndicator': 83,
-        'monthlyIndicator': 76
-      },
-      {
-        'icIdentity': '2-1010',
-        'icName': 'Bank of America10',
-        'numberOfLaborers': 1267,
-        'leasedLaborers': 973,
-        'unleasedLaborers': 294,
-        'weeklyIndicator': 83,
-        'monthlyIndicator': 76
-      },
-      {
-        'icIdentity': '2-1111',
-        'icName': 'Bank of America11',
-        'numberOfLaborers': 1267,
-        'leasedLaborers': 973,
-        'unleasedLaborers': 294,
-        'weeklyIndicator': 83,
-        'monthlyIndicator': 76
-      },
-      {
-        'icIdentity': '2-1112',
-        'icName': 'Bank of America13',
-        'numberOfLaborers': 1267,
-        'leasedLaborers': 973,
-        'unleasedLaborers': 294,
-        'weeklyIndicator': 83,
-        'monthlyIndicator': 76
-      },
-      {
-        'icIdentity': '2-1112',
-        'icName': 'Bank of America14',
-        'numberOfLaborers': 1267,
-        'leasedLaborers': 973,
-        'unleasedLaborers': 294,
-        'weeklyIndicator': 83,
-        'monthlyIndicator': 76
-      },
-      {
-        'icIdentity': '2-1112',
-        'icName': 'Bank of America15',
-        'numberOfLaborers': 1267,
-        'leasedLaborers': 973,
-        'unleasedLaborers': 294,
-        'weeklyIndicator': 83,
-        'monthlyIndicator': 76
-      },
-      {
-        'icIdentity': '2-1112',
-        'icName': 'Bank of America16',
-        'numberOfLaborers': 1267,
-        'leasedLaborers': 973,
-        'unleasedLaborers': 294,
-        'weeklyIndicator': 83,
-        'monthlyIndicator': 76
-      },
-      {
-        'icIdentity': '2-1112',
-        'icName': 'Bank of America17',
-        'numberOfLaborers': 1267,
-        'leasedLaborers': 973,
-        'unleasedLaborers': 294,
-        'weeklyIndicator': 83,
-        'monthlyIndicator': 76
-      },
-      {
-        'icIdentity': '2-1112',
-        'icName': 'Bank of America18',
-        'numberOfLaborers': 1267,
-        'leasedLaborers': 973,
-        'unleasedLaborers': 294,
-        'weeklyIndicator': 83,
-        'monthlyIndicator': 76
-      },
-      {
-        'icIdentity': '2-1112',
-        'icName': 'Bank of America19',
-        'numberOfLaborers': 1267,
-        'leasedLaborers': 973,
-        'unleasedLaborers': 294,
-        'weeklyIndicator': 83,
-        'monthlyIndicator': 76
-      },
-      {
-        'icIdentity': '2-1112',
-        'icName': 'Bank of America20',
-        'numberOfLaborers': 1267,
-        'leasedLaborers': 973,
-        'unleasedLaborers': 294,
-        'weeklyIndicator': 83,
-        'monthlyIndicator': 76
-      }
-    ]
+    'weeklyReport': weeklyReport.data,
   });
 });
 
@@ -244,6 +74,8 @@ app.get("/weekly-report-footer", (req, res) => {
 
 
 // MONTHLY REPORT
+const monthlyReport = require('./data/monthly-report')
+
 app.get("/monthly-report-header", (req, res) => {
   res.render("monthly-report-header.twig", {});
 });
@@ -252,114 +84,10 @@ app.get("/monthly-report-footer", (req, res) => {
   res.render("monthly-report-footer.twig", {});
 });
 
-const details = [
-  {
-    'icName': 'Bank of America',
-    'icIdentity': '1-2345',
-    'paymentMethod': 'Qiwa',
-    'Month': 'December',
-    'amountPaidVat': 11000,
-    'amountPaid': 10000,
-    'notices': 5,
-    'usedNotices': 0,
-  },
-  {
-    'icName': 'Bank of America',
-    'icIdentity': '1-2345',
-    'paymentMethod': 'Qiwa',
-    'Month': 'December',
-    'amountPaidVat': 11000,
-    'amountPaid': 10000,
-    'notices': 5,
-    'usedNotices': 0,
-  }
-];
-
-const details2 = [
-  {
-    'icName': 'Bank of America',
-    'icIdentity': '1-2345',
-    'paymentMethod': 'Qiwa',
-    'Month': 'December',
-    'amountPaidVat': 11000,
-    'amountPaid': 10000,
-    'notices': 5,
-    'usedNotices': 0,
-  },
-  {
-    'icName': 'Bank of America',
-    'icIdentity': '1-2345',
-    'paymentMethod': 'Qiwa',
-    'Month': 'December',
-    'amountPaidVat': 11000,
-    'amountPaid': 10000,
-    'notices': 5,
-    'usedNotices': 0,
-  },
-  {
-    'icIdentity': '1-2345',
-    'paymentMethod': 'Qiwa',
-    'Month': 'December',
-    'amountPaidVat': 11000,
-    'amountPaid': 10000,
-    'notices': 5,
-    'usedNotices': 0,
-  }
-]
-
-const details3 = [
-  {
-    'icIdentity': '1-2345',
-    'paymentMethod': 'Qiwa',
-    'Month': 'December',
-    'amountPaidVat': 11000,
-    'amountPaid': 10000,
-    'notices': 5,
-    'usedNotices': 0,
-  }
-]
 
 app.get("/monthly-report", (req, res) => {
   res.render("monthly-report.twig", {
-    'monthlyReport': [
-      {
-        'icName': 'Bank of America',
-        'icIdentity': '1-2345',
-        'totalPaidGross': 57500,
-        'totalPaidNet': 50000,
-        'totalBoughtNotices': 2500,
-        'totalUsedNotices': 123,
-        'purchases': details
-      },
-      {
-        'icName': 'Bank of America',
-        'icIdentity': '1-2345',
-        'totalPaidGross': 57500,
-        'totalPaidNet': 50000,
-        'totalBoughtNotices': 2500,
-        'totalUsedNotices': 123,
-        'purchases': details2
-      },
-      {
-        'icName': 'Bank of America',
-        'icIdentity': '1-2345',
-        'totalPaidGross': 57500,
-        'totalPaidNet': 50000,
-        'totalBoughtNotices': 2500,
-        'totalUsedNotices': 123,
-        'purchases': details3
-      },
-
-      {
-        'icName': 'Bank of America',
-        'icIdentity': '1-2345',
-        'totalPaidGross': 57500,
-        'totalPaidNet': 50000,
-        'totalBoughtNotices': 2500,
-        'totalUsedNotices': 123,
-        'purchases': details3
-      }
-    ]
+    'monthlyReport': monthlyReport.data,
   });
 });
 
