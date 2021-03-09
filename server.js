@@ -143,6 +143,27 @@ app.get("/daily-report", (req, res) => {
 });
 
 
+// FINANCIAL WEEKLY REPORT
+const financialWeeklyReport = require('./data/financial-weekly-report')
+
+app.get("/financial-weekly-report", (req, res) => {
+  res.render("financial-weekly-report/financial-weekly-report.twig", {
+    'report': financialWeeklyReport.data,
+  });
+});
+
+app.get("/financial-weekly-report-header", (req, res) => {
+  res.render("financial-weekly-report/financial-weekly-report-header.twig", {
+    'startDate': '01/02/2021',
+    'endDate': '07/02/2021',
+  });
+});
+
+app.get("/financial-weekly-report-footer", (req, res) => {
+  res.render("financial-weekly-report/financial-weekly-report-footer.twig", {});
+});
+
+
 app.get("/notice", (req, res) => {
   res.render("notice.twig", {});
 });
