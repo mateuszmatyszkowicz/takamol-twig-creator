@@ -102,42 +102,36 @@ app.get("/daily-report-footer", (req, res) => {
   res.render("daily-report/daily-report-footer.twig", {});
 });
 
+const daysAgo = (today, offset) => {
+  today.setDate(today.getDate() - offset);
+  return today;
+};
+
 app.get("/daily-report", (req, res) => {
   res.render("daily-report/daily-report.twig", {
-    'date': '21/01/2021', // Yesterday’s date
-    'noticesYesterday': {
-      'premium': 231,
-      'standard': 452,
-      'date': '21/01/2021',
-    },
-    'notices2DaysAgo': {
-      'premium': 349,
-      'standard': 502,
-      'date': '20/01/2021',
-    },
-    'notices3DaysAgo': {
-      'premium': 192,
-      'standard': 240,
-      'date': '19/01/2021',
-    },
-    'noticesTotal': {
-      'premium': 14400,
-      'standard': 12300,
-      'startDate': '01/01/2020',
-      'endDate': '21/01/2021',
-    },
-    'packagesDaily': 45,
-    'packagesTotal': {
-      'value': 520,
-      'startDate': '01/01/2020',
-      'endDate': '21/01/2021',
-    },
-    'contractProposals': {
-      'accepted': 120,
-      'rejected': 52,
-      'expired': 10,
-      'pending': 64,
-      'date': '21/01/2021',
+    'report': {
+      'yesterdayDate': daysAgo(new Date(), 1),
+      'twoDaysAgoDate': daysAgo(new Date(), 2),
+      'threeDaysAgoDate': daysAgo(new Date(), 3),
+      'premiumNoticesYesterday': 231,
+      'standardNoticesYesterday': 452,
+      'premiumNoticesTwoDaysAgo': 231,
+      'standardNoticesTwoDaysAgo': 452,
+      'premiumNoticesThreeDaysAgo': 231,
+      'standardNoticesThreeDaysAgo': 452,
+      'premiumNoticesLtd': 120,
+      'standardNoticesLtd': 120,
+      'importedNoticesLtd': 120,
+      'premiumNoticesYtd': 120,
+      'standardNoticesYtd': 120,
+      'importedNoticesYtd': 120,
+      'purchasesLtd': 35000,
+      'purchasesYtd': 502,
+      'dailyPurchases': 45,
+      'proposalsAccepted': 120,
+      'proposalsRejected': 52,
+      'proposalsExpired': 10,
+      'proposalsCreated': 6411,
     }
   });
 });
