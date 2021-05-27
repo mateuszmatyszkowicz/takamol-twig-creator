@@ -73,6 +73,27 @@ app.get("/weekly-report-footer", (req, res) => {
 });
 
 
+// WEEKLY INDICATORS REPORT
+const weeklyIndicatorsReport = require('./data/weekly-indicators')
+
+app.get("/weekly-indicators", (req, res) => {
+  res.render("weekly-indicators/weekly-indicators.twig", {
+    'weeklyReport': weeklyIndicatorsReport.data.list,
+  });
+});
+
+app.get("/weekly-indicators-header", (req, res) => {
+  res.render("weekly-indicators/weekly-indicators-header.twig", {
+    'fromDate': weeklyIndicatorsReport.data.fromDate,
+    'toDate': weeklyIndicatorsReport.data.toDate,
+  });
+});
+
+app.get("/weekly-indicators-footer", (req, res) => {
+  res.render("weekly-indicators/weekly-indicators-footer.twig", {});
+});
+
+
 // MONTHLY REPORT
 const monthlyReport = require('./data/monthly-report')
 
