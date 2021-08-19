@@ -72,6 +72,26 @@ app.get("/weekly-report-footer", (req, res) => {
   res.render("weekly-report/weekly-report-footer.twig", {});
 });
 
+const workerReport = require('./data/worker-transfer')
+app.get("/worker-transfer", (req, res) => {
+  res.render("worker-transfer/worker-transfer-report-body.twig", {
+    'report': workerReport.data,
+  });
+});
+
+app.get("/worker-transfer-header", (req, res) => {
+  res.render("worker-transfer/worker-transfer-report-header.twig", {
+    fromDate: '12.09.2021',
+    toDate: '19.09.2021'
+  });
+});
+
+app.get("/worker-transfer-footer", (req, res) => {
+  res.render("worker-transfer/worker-transfer-report-footer.twig", {});
+});
+
+
+
 
 // WEEKLY INDICATORS REPORT
 const weeklyIndicatorsReport = require('./data/weekly-indicators')
