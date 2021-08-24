@@ -9,7 +9,8 @@ module.exports = {
       'laborerId': 83,
       'laborerName': 76,
       'bcName': 'Test Name',
-      'bcNumber': 200
+      'bcNumber': 200,
+      'statusChanged': '15.09.2021'
     },
     {
       'icNumber': '4-578',
@@ -20,7 +21,8 @@ module.exports = {
       'laborerId': 83,
       'laborerName': 76,
       'bcName': 'Test Name',
-      'bcNumber': 200
+      'bcNumber': 200,
+      'statusChanged': '15.09.2021'
     },
     {
       'icNumber': '2-246345',
@@ -31,7 +33,8 @@ module.exports = {
       'laborerId': 83,
       'laborerName': 76,
       'bcName': 'Test Name',
-      'bcNumber': 200
+      'bcNumber': 200,
+      'statusChanged': '15.09.2021'
     },
     {
       'icNumber': '2-232332',
@@ -42,7 +45,8 @@ module.exports = {
       'laborerId': 83,
       'laborerName': 76,
       'bcName': 'Test Name',
-      'bcNumber': 200
+      'bcNumber': 200,
+      'statusChanged': '15.09.2021'
     },
     {
       'icNumber': '2-3333',
@@ -53,7 +57,8 @@ module.exports = {
       'laborerId': 83,
       'laborerName': 76,
       'bcName': 'Test Name',
-      'bcNumber': 200
+      'bcNumber': 200,
+      'statusChanged': '15.09.2021'
     },
     {
       'icNumber': '2-123321',
@@ -64,7 +69,8 @@ module.exports = {
       'laborerId': 83,
       'laborerName': 76,
       'bcName': 'Test Name',
-      'bcNumber': 200
+      'bcNumber': 200,
+      'statusChanged': '15.09.2021'
     },
     {
       'icNumber': '2-1111',
@@ -75,7 +81,8 @@ module.exports = {
       'laborerId': 83,
       'laborerName': 76,
       'bcName': 'Test Name',
-      'bcNumber': 200
+      'bcNumber': 200,
+      'statusChanged': '15.09.2021'
     },
     {
       'icNumber': '2-321',
@@ -86,7 +93,8 @@ module.exports = {
       'laborerId': 83,
       'laborerName': 76,
       'bcName': 'Test Name',
-      'bcNumber': 200
+      'bcNumber': 200,
+      'statusChanged': '15.09.2021'
     },
     {
       'icNumber': '2-898',
@@ -97,7 +105,8 @@ module.exports = {
       'laborerId': 83,
       'laborerName': 76,
       'bcName': 'Test Name',
-      'bcNumber': 200
+      'bcNumber': 200,
+      'statusChanged': '15.09.2021'
     },
     {
       'icNumber': '2-1010',
@@ -108,7 +117,8 @@ module.exports = {
       'laborerId': 83,
       'laborerName': 76,
       'bcName': 'Test Name',
-      'bcNumber': 200
+      'bcNumber': 200,
+      'statusChanged': '15.09.2021'
     },
     {
       'icNumber': '2-1111',
@@ -119,7 +129,8 @@ module.exports = {
       'laborerId': 83,
       'laborerName': 76,
       'bcName': 'Test Name',
-      'bcNumber': 200
+      'bcNumber': 200,
+      'statusChanged': '15.09.2021'
     },
     {
       'icNumber': '2-1112',
@@ -130,7 +141,8 @@ module.exports = {
       'laborerId': 83,
       'laborerName': 76,
       'bcName': 'Test Name',
-      'bcNumber': 200
+      'bcNumber': 200,
+      'statusChanged': '15.09.2021'
     },
     {
       'icNumber': '2-1112',
@@ -141,7 +153,8 @@ module.exports = {
       'laborerId': 83,
       'laborerName': 76,
       'bcName': 'Test Name',
-      'bcNumber': 200
+      'bcNumber': 200,
+      'statusChanged': '15.09.2021'
     },
     {
       'icNumber': '2-1112',
@@ -152,7 +165,8 @@ module.exports = {
       'laborerId': 83,
       'laborerName': 76,
       'bcName': 'Test Name',
-      'bcNumber': 200
+      'bcNumber': 200,
+      'statusChanged': '15.09.2021'
     },
     {
       'icNumber': '2-1112',
@@ -163,7 +177,8 @@ module.exports = {
       'laborerId': 83,
       'laborerName': 76,
       'bcName': 'Test Name',
-      'bcNumber': 200
+      'bcNumber': 200,
+      'statusChanged': '15.09.2021'
     },
     {
       'icNumber': '2-1112',
@@ -174,7 +189,8 @@ module.exports = {
       'laborerId': 83,
       'laborerName': 76,
       'bcName': 'Test Name',
-      'bcNumber': 200
+      'bcNumber': 200,
+      'statusChanged': '15.09.2021'
     },
     {
       'icNumber': '2-1112',
@@ -185,7 +201,8 @@ module.exports = {
       'laborerId': 83,
       'laborerName': 76,
       'bcName': 'Test Name',
-      'bcNumber': 200
+      'bcNumber': 200,
+      'statusChanged': '15.09.2021'
     },
     {
       'icNumber': '2-1112',
@@ -196,7 +213,8 @@ module.exports = {
       'laborerId': 83,
       'laborerName': 76,
       'bcName': 'Test Name',
-      'bcNumber': 200
+      'bcNumber': 200,
+      'statusChanged': '15.09.2021'
     },
     {
       'icNumber': '2-1112',
@@ -207,7 +225,8 @@ module.exports = {
       'laborerId': 83,
       'laborerName': 76,
       'bcName': 'Test Name',
-      'bcNumber': 200
+      'bcNumber': 200,
+      'statusChanged': '15.09.2021'
     }
   ]
 }
