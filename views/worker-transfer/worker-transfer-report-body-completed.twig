@@ -1,0 +1,121 @@
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <title>Completed transaction in worker transfer weekly report</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            color: #272c2d;
+            width: auto;
+        }
+
+        p {
+            margin: 10pt 0;
+        }
+
+        .font-bold {
+            font-weight: 700;
+        }
+
+        .table-header {
+            font-weight: 600;
+            font-size: 9pt;
+        }
+
+        table#weekly-report {
+            font-size: 8pt;
+            border-collapse: collapse;
+        }
+
+        .table-cell {
+            padding: 11.5pt;
+        }
+
+        .table-header.table-cell {
+            padding: 15pt;
+        }
+
+        .table-cell:not(:last-child) {
+            border-right: 1px solid #e7e6e6;
+        }
+
+        table#weekly-report tbody {
+            color: #4e555e;
+        }
+
+        table#weekly-report tbody .table-row:nth-child(2n-1) {
+            background-color: rgba(241, 244, 247, 0.5);
+        }
+
+        table#weekly-report .border-none {
+            border: 0;
+        }
+
+        table#weekly-report thead {
+            display: table-header-group;
+        }
+        table#weekly-report tr {
+            page-break-inside: avoid;
+        }
+
+        table#weekly-report {
+            direction: ltr;
+        }
+    </style>
+</head>
+
+<body>
+<div class="pdf-body">
+    <table id="weekly-report" style="width: 100%">
+        <thead align="center">
+        <tr style="color: #4e555e">
+            <th class="table-header table-cell" style="width: 30px;">
+                <div>#</div>
+            </th>
+            <th class="table-header table-cell" style="width: 40px">
+                <div>Current BO number</div>
+            </th>
+            <th class="table-header table-cell">
+                <div>Current BO name</div>
+            </th>
+            <th class="table-header table-cell">
+                <div>Ajeer request number</div>
+            </th>
+            <th class="table-header table-cell">
+                <div>Laborer ID</div>
+            </th>
+            <th class="table-header table-cell">
+                <div>New BO number</div>
+            </th>
+            <th class="table-header table-cell">
+                <div>New BO name</div>
+            </th>
+            <th class="table-header table-cell">
+                <div>Completion date</div>
+            </th>
+        </tr>
+        </thead>
+
+        <tbody align="center">
+        {% for transfer in report.transfers %}
+            <tr class="table-row">
+                <td class="table-cell">{{ loop.index }}</td>
+                <td class="table-cell">{{ transfer.currentBoNumber }}</td>
+                <td class="table-cell">{{ transfer.currentBoName }}</td>
+                <td class="table-cell">{{ transfer.ajeerNumber }}</td>
+                <td class="table-cell">{{ transfer.laborerId }}</td>
+                <td class="table-cell">{{ transfer.newBoNumber }}</td>
+                <td class="table-cell">{{ transfer.newBoName }}</td>
+                <td class="table-cell">{{ transfer.completedAt }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

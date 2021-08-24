@@ -74,15 +74,26 @@ app.get("/weekly-report-footer", (req, res) => {
 
 const workerReport = require('./data/worker-transfer')
 app.get("/worker-transfer", (req, res) => {
-  res.render("worker-transfer/worker-transfer-report-body.twig", {
-    'report': workerReport.data,
+  res.render("worker-transfer/worker-transfer-report-body-completed.twig", {
+    'report': { transfers: workerReport.data },
+  });
+});
+
+app.get("/worker-transfer-body-completed", (req, res) => {
+  res.render("worker-transfer/worker-transfer-report-body-completed.twig", {
+    'report': { transfers: workerReport.data },
+  });
+});
+
+app.get("/worker-transfer-body-failed", (req, res) => {
+  res.render("worker-transfer/worker-transfer-report-body-failed.twig", {
+    'report': { transfers: workerReport.data.map(({completedAt,...rest}) => ({...rest, statusChangeDate: completedAt, status: 'Expired'}) ) },
   });
 });
 
 app.get("/worker-transfer-header", (req, res) => {
   res.render("worker-transfer/worker-transfer-report-header.twig", {
-    fromDate: '12.09.2021',
-    toDate: '19.09.2021'
+    subtitle: 'Failed requests',
   });
 });
 
