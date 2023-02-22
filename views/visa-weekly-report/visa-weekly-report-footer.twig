@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script>
+      function substitutePdfVariables() {
+
+        function getParameterByName(name) {
+          var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+          return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+        }
+
+        function substitute(name) {
+          var value = getParameterByName(name);
+          var elements = document.getElementsByClassName(name);
+
+          for (var i = 0; elements && i < elements.length; i++) {
+            elements[i].textContent = value;
+          }
+        }[
+          'frompage',
+          'topage',
+          'page',
+          'webpage',
+          'section',
+          'subsection',
+          'subsubsection'
+        ].forEach(function (param) {
+          substitute(param);
+        });
+      }
+    </script>
+  </head>
+  <body onload="substitutePdfVariables()" style="font-family: 'Arial'; font-size: 11pt; padding: 0; margin: 0;">
+    <div
+      class="pdf-footer">
+      <hr color="#152E83" size="1" style="margin-bottom: 10pt"/>
+    <table style="width: 100%">
+      <tr>
+        <td>
+          <p>
+            <span class="page"></span>/<span class="topage"></span>
+          </p>
+        </td>
+        <td align="right">
+          <p>.أجير-حلول-الموار-الب</p>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,177 @@
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Weekly report - Visa transactions</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Arial";
+      }
+
+      body {
+        color: #272c2d;
+        width: auto;
+      }
+
+      p {
+        margin: 4pt 4pt 0;
+      }
+
+      .date-since-paragraph {
+        font-size: 11pt;
+        text-align: end;
+      }
+
+      .font-bold {
+        font-weight: 700;
+      }
+
+      .table-header {
+        font-weight: 400;
+        font-size: 12pt;
+      }
+
+      table#weekly-report {
+        font-size: 12pt;
+        border-collapse: collapse;
+      }
+
+      .table-cell {
+        padding: 18pt;
+      }
+
+      .table-cell:not(:first-child) {
+        border-right: 1px solid #e7e6e6;
+      }
+
+      table#weekly-report tbody {
+        color: #4e555e;
+      }
+
+      table#weekly-report tbody .table-row-coloured:nth-child(2n-1) {
+        background-color: rgba(241, 244, 247, 0.5);
+      }
+
+      table#weekly-report .border-none {
+        border: 0;
+      }
+
+      table#weekly-report thead {
+        display: table-header-group;
+      }
+      table#weekly-report tr {
+        page-break-inside: avoid;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="pdf-body">
+      <table style="padding: 5pt 0pt 10pt; width: 100%">
+        <tbody>
+          <tr>
+            <td style="width: 60%"></td>
+            <td>
+              <p class="date-since-paragraph">
+                <span class="font-bold"> منذ اطلاق الخدمة : </span>
+                من {{ visaWeeklyReport.launchDate }}
+              </p>
+            </td>
+            <td>
+              <p class="date-since-paragraph">
+                <span class="font-bold"> الاسبوع السابق : </span>
+                من {{ visaWeeklyReport.weekStartDate }}
+              </p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <table id="weekly-report" style="width: 100%">
+        <thead align="center">
+          {# thead: first row #}
+          <tr style="color: #4e555e">
+            <th class="table-header">
+              <div></div>
+            </th>
+            <th class="table-header table-cell" colspan="2">
+              <div>التأشيرات المصدرة</div>
+            </th>
+
+            <th class="table-header table-cell" colspan="2">
+              <div>التأشيرات الملغاة (إستقدام)</div>
+            </th>
+
+            <th class="table-header table-cell" colspan="2">
+              <div>التأشيرات الملغاة (الوزارة)</div>
+            </th>
+          </tr>
+
+          {# thead: second row #}
+          <tr>
+            <th rowspan="2" class="table-header table-cell">
+              <div>اسم المنشآة</div>
+            </th>
+
+            <th class="table-header table-cell">
+              <div>الاسبوع السابق</div>
+            </th>
+            <th class="table-header table-cell">
+              <div>منذ اطلاق الخدمة</div>
+            </th>
+
+            <th class="table-header table-cell">
+              <div>الاسبوع السابق</div>
+            </th>
+            <th class="table-header table-cell">
+              <div>منذ اطلاق الخدمة</div>
+            </th>
+
+            <th class="table-header table-cell">
+              <div>الاسبوع السابق</div>
+            </th>
+            <th>
+              <div>منذ اطلاق الخدمة</div>
+            </th>
+          </tr>
+        </thead>
+        <tbody align="center">
+          {% for report in visaWeeklyReport.list %}
+          <tr class="table-row-coloured">
+            <td class="table-cell">
+              {{ report.establishmentName }}
+            </td>
+            <td class="table-cell">
+              {{ report.issued.sinceLaunch }}
+            </td>
+            <td class="table-cell">
+              {{ report.issued.lastWeek }}
+            </td>
+            <td class="table-cell">
+              {{ report.cancelledAjeer.sinceLaunch }}
+            </td>
+            <td class="table-cell">
+              {{ report.cancelledAjeer.lastWeek }}
+            </td>
+            <td class="table-cell">
+              {{ report.cancelledMhrsd.sinceLaunch }}
+            </td>
+            <td class="table-cell">
+              {{ report.cancelledMhrsd.lastWeek }}
+            </td>
+          </tr>
+          {% endfor %}
+          <tr>
+            {# Total issued visas for all establishments #}
+            <td class="table-cell">مجموع التاشيرات المصدرة لجميع المنشآت</td>
+            <td class="table-cell">
+              {{ visaWeeklyReport.totalIssued }}
+            </td>
+            <td class="table-cell" colspan="5"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

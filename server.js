@@ -209,6 +209,25 @@ app.get("/financial-weekly-report-footer", (req, res) => {
   res.render("financial-weekly-report/financial-weekly-report-footer.twig", {});
 });
 
+// VISA WEEKLY REPORT
+const visaWeeklyReport = require('./data/visa-weekly-report')
+
+app.get("/visa-weekly-report", (req, res) => {
+  res.render("visa-weekly-report/visa-weekly-report.twig", {
+    'visaWeeklyReport': visaWeeklyReport.data,
+  });
+});
+
+app.get("/visa-weekly-report-header", (req, res) => {
+  res.render("visa-weekly-report/visa-weekly-report-header.twig", {
+    'visaWeeklyReportHeader': visaWeeklyReport.headerData,
+  });
+});
+
+app.get("/visa-weekly-report-footer", (req, res) => {
+  res.render("visa-weekly-report/visa-weekly-report-footer.twig", {});
+});
+
 
 app.get("/notice", (req, res) => {
   res.render("notice.twig", {});
