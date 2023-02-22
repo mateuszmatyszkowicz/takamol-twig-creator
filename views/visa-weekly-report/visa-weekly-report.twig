@@ -19,18 +19,22 @@
         margin: 4pt 4pt 0;
       }
 
-      .date-since-paragraph {
-        font-size: 11pt;
-        text-align: end;
-      }
-
       .font-bold {
         font-weight: 700;
       }
 
       .table-header {
         font-weight: 400;
-        font-size: 12pt;
+        font-size: 14pt;
+      }
+
+      .table-header.table-cell {
+        border-top: 1px solid #E6E5E5;
+        border-bottom: 1px solid #E6E5E5;
+      }
+      
+      .table-header-first-row .table-header.table-cell {
+        border-top: none;
       }
 
       table#weekly-report {
@@ -39,11 +43,11 @@
       }
 
       .table-cell {
-        padding: 18pt;
+        padding: 20pt;
       }
 
       .table-cell:not(:first-child) {
-        border-right: 1px solid #e7e6e6;
+        border-right: 1px solid #E6E5E5;
       }
 
       table#weekly-report tbody {
@@ -54,6 +58,10 @@
         background-color: rgba(241, 244, 247, 0.5);
       }
 
+      table#weekly-report tbody .table-row-coloured:first-child {
+        border-top: 1px solid #E6E5E5;
+      }
+
       table#weekly-report .border-none {
         border: 0;
       }
@@ -61,38 +69,25 @@
       table#weekly-report thead {
         display: table-header-group;
       }
+
       table#weekly-report tr {
         page-break-inside: avoid;
+      }
+
+      .table-row-total td {
+        border-top: 1px solid #0D5068;
+        font-size: 14pt;
       }
     </style>
   </head>
 
   <body>
     <div class="pdf-body">
-      <table style="padding: 5pt 0pt 10pt; width: 100%">
-        <tbody>
-          <tr>
-            <td style="width: 60%"></td>
-            <td>
-              <p class="date-since-paragraph">
-                <span class="font-bold"> منذ اطلاق الخدمة : </span>
-                من {{ visaWeeklyReport.launchDate }}
-              </p>
-            </td>
-            <td>
-              <p class="date-since-paragraph">
-                <span class="font-bold"> الاسبوع السابق : </span>
-                من {{ visaWeeklyReport.weekStartDate }}
-              </p>
-            </td>
-          </tr>
-        </tbody>
-      </table>
       <table id="weekly-report" style="width: 100%">
         <thead align="center">
           {# thead: first row #}
-          <tr style="color: #4e555e">
-            <th class="table-header">
+          <tr class="table-header-first-row" style="color: #4e555e; padding-top: 4pt">
+            <th class="table-header table-cell border-none">
               <div></div>
             </th>
             <th class="table-header table-cell" colspan="2">
@@ -110,7 +105,7 @@
 
           {# thead: second row #}
           <tr>
-            <th rowspan="2" class="table-header table-cell">
+            <th rowspan="2" class="table-header table-cell border-none">
               <div>اسم المنشآة</div>
             </th>
 
@@ -131,44 +126,44 @@
             <th class="table-header table-cell">
               <div>الاسبوع السابق</div>
             </th>
-            <th>
+            <th class="table-header table-cell">
               <div>منذ اطلاق الخدمة</div>
             </th>
           </tr>
         </thead>
         <tbody align="center">
-          {% for report in visaWeeklyReport.list %}
+          {% for report in visaWeeklyReport.weeklyReportData %}
           <tr class="table-row-coloured">
             <td class="table-cell">
               {{ report.establishmentName }}
             </td>
             <td class="table-cell">
-              {{ report.issued.sinceLaunch }}
+              {{ report.reportTransactions.issuedVisas.sinceLaunch }}
             </td>
             <td class="table-cell">
-              {{ report.issued.lastWeek }}
+              {{ report.reportTransactions.issuedVisas.lastWeek }}
             </td>
             <td class="table-cell">
-              {{ report.cancelledAjeer.sinceLaunch }}
+              {{ report.reportTransactions.canceledAjeer.sinceLaunch }}
             </td>
             <td class="table-cell">
-              {{ report.cancelledAjeer.lastWeek }}
+              {{ report.reportTransactions.canceledAjeer.lastWeek }}
             </td>
             <td class="table-cell">
-              {{ report.cancelledMhrsd.sinceLaunch }}
+              {{ report.reportTransactions.canceledMhrsd.sinceLaunch }}
             </td>
             <td class="table-cell">
-              {{ report.cancelledMhrsd.lastWeek }}
+              {{ report.reportTransactions.canceledMhrsd.lastWeek }}
             </td>
           </tr>
           {% endfor %}
-          <tr>
+          <tr class="table-row-total">
             {# Total issued visas for all establishments #}
             <td class="table-cell">مجموع التاشيرات المصدرة لجميع المنشآت</td>
             <td class="table-cell">
               {{ visaWeeklyReport.totalIssued }}
             </td>
-            <td class="table-cell" colspan="5"></td>
+            <td class="table-cell border-none" colspan="5"></td>
           </tr>
         </tbody>
       </table>
