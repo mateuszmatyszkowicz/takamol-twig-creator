@@ -24,22 +24,28 @@
       }
 
       .header-date-since {
-        padding: 5pt 0pt 10pt; 
-        width: 100%
+        padding: 5pt 0pt 10pt;
+        width: 100%;
       }
 
       .date-since-paragraph {
         font-size: 11pt;
-        text-align: end;
+        text-align: start;
       }
     </style>
   </head>
-  <body style="direction: rtl; font-family: 'Arial'; padding-bottom: 4pt;">
+  <body style="direction: rtl; font-family: 'Arial'; padding-bottom: 4pt">
     <div class="pdf-header">
       <table style="padding-top: 4pt; width: 100%">
         <tbody>
           <tr>
-            <td align="right" style="width: 50%">
+            <td style="width: 50%; text-align: right">
+              <p class="font-bold">
+                التقرير الاسبوعي {{ currentDate|date('d-m-Y') }}
+              </p>
+              <p>خدمة إصدار/ الغاء التاشيرات</p>
+            </td>
+            <td align="left" style="width: 50%">
               <svg
                 width="120"
                 height="42"
@@ -117,14 +123,6 @@
                 />
               </svg>
             </td>
-
-            <td style="width: 50%; text-align: left">
-              {# TODO: currentDate variable #}
-              <p class="font-bold">
-                التقرير الاسبوعي {{ currentDate|date('d/m/Y') }}
-              </p>
-              <p>خدمة إصدار/ الغاء التاشيرات</p>
-            </td>
           </tr>
         </tbody>
       </table>
@@ -132,19 +130,21 @@
       <table style="padding-top: 4pt; width: 100%">
         <tbody>
           <tr>
-            <td style="width: 60%"></td>
             <td>
               <p class="date-since-paragraph">
                 <span class="font-bold"> منذ اطلاق الخدمة : </span>
-                من {{ visaWeeklyReport.launchDate|date('d-m-Y') }}
+                من {{ visaWeeklyReport.launchDate|date('d-m-Y') }} الى
+                {{ visaWeeklyReport.weekEndDate|date('d-m-Y') }}
               </p>
             </td>
             <td>
               <p class="date-since-paragraph">
                 <span class="font-bold"> الاسبوع السابق : </span>
-                من {{ visaWeeklyReport.weekStartDate|date('d-m-Y') }}
+                من {{ visaWeeklyReport.weekStartDate|date('d-m-Y') }} الى
+                {{ visaWeeklyReport.weekEndDate|date('d-m-Y') }}
               </p>
             </td>
+            <td style="width: 50%"></td>
           </tr>
         </tbody>
       </table>

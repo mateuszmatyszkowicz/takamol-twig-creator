@@ -220,7 +220,7 @@ app.get("/visa-weekly-report", (req, res) => {
 
 app.get("/visa-weekly-report-header", (req, res) => {
   res.render("visa-weekly-report/visa-weekly-report-header.twig", {
-    'visaWeeklyReportHeader': visaWeeklyReport.headerData,
+    'visaWeeklyReport': visaWeeklyReport.headerData,
   });
 });
 

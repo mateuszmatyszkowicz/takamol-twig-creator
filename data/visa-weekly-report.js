@@ -1,8 +1,9 @@
 module.exports = {
   headerData: {
-    currentDate: "19-02-2023",
+    currentDate: "26-02-2023",
     launchDate: "2022-01-01",
     weekStartDate: "2023-02-19",
+    weekEndDate: "2023-02-25",
   },
   data: {
     totalIssued: 1234,
