@@ -1,0 +1,147 @@
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <title>Visa request - list of visas</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Arial";
+        }
+
+        body {
+            color: #272c2d;
+            width: auto;
+        }
+
+        p {
+            margin: 4pt 4pt 0;
+        }
+
+        .font-bold {
+            font-weight: 700;
+        }
+
+        .table-header {
+            font-weight: 400;
+            font-size: 14pt;
+        }
+
+        .table-header.table-cell {
+            border-top: 1px solid #E6E5E5;
+            border-bottom: 1px solid #E6E5E5;
+        }
+
+        .table-header-first-row .table-header.table-cell {
+            border-top: none;
+        }
+
+        table#visa-request-visas-report {
+            font-size: 12pt;
+            border-collapse: collapse;
+        }
+
+        .table-cell {
+            padding: 20pt;
+        }
+
+        .table-cell:not(:first-child) {
+            border-right: 1px solid #E6E5E5;
+        }
+
+        table#visa-request-visas-report tbody {
+            color: #4e555e;
+        }
+
+        table#visa-request-visas-report tbody .table-row-coloured:nth-child(2n-1) {
+            background-color: rgba(241, 244, 247, 0.5);
+        }
+
+        table#visa-request-visas-report tbody .table-row-coloured:first-child {
+            border-top: 1px solid #E6E5E5;
+        }
+
+        table#visa-request-visas-report thead {
+            display: table-header-group;
+        }
+
+        table#visa-request-visas-report tr {
+            page-break-inside: avoid;
+        }
+
+        .table-row-total td {
+            border-top: 1px solid #0D5068;
+            font-size: 14pt;
+        }
+    </style>
+</head>
+
+<body>
+<div class="pdf-body">
+    <table id="visa-request-visas-report" style="width: 100%">
+        <thead align="center">
+        <tr class="table-header-first-row">
+            <th class="table-header table-cell">
+                <div>رقم</div>
+            </th>
+
+            <th class="table-header table-cell">
+                <div>رقم الحدود</div>
+            </th>
+            <th class="table-header table-cell">
+                <div>جنسية الموظف</div>
+            </th>
+
+            <th class="table-header table-cell">
+                <div>جنس الموظف</div>
+            </th>
+            <th class="table-header table-cell">
+                <div>المهنة</div>
+            </th>
+
+            <th class="table-header table-cell">
+                <div>جهة القدوم</div>
+            </th>
+            <th class="table-header table-cell">
+                <div>الديانة</div>
+            </th>
+            <th class="table-header table-cell">
+                <div>حالة التأشيرة</div>
+            </th>
+        </tr>
+        </thead>
+        <tbody align="center">
+        {% for visa in visaRequest.visas %}
+            <tr class="table-row-coloured">
+                <td class="table-cell">
+                    {{ loop.index }}
+                </td>
+                <td class="table-cell">
+                    {{ visa.borderNumber }}
+                </td>
+                <td class="table-cell">
+                    {{ visa.nationality }}
+                </td>
+                <td class="table-cell">
+                    {{ visa.gender }}
+                </td>
+                <td class="table-cell">
+                    {{ visa.occupation }}
+                </td>
+                <td class="table-cell">
+                    {{ visa.origin }}
+                </td>
+                <td class="table-cell">
+                    {{ visa.religion }}
+                </td>
+                <td class="table-cell">
+                    {{ visa.status }}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

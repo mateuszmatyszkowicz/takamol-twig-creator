@@ -228,6 +228,25 @@ app.get("/visa-weekly-report-footer", (req, res) => {
   res.render("visa-weekly-report/visa-weekly-report-footer.twig", {});
 });
 
+// VISA REQUEST VISAS REPORT
+const visaRequestVisasReport = require('./data/visa-request-visas-report')
+
+app.get("/visa-request-visas-report", (req, res) => {
+  res.render("visa-request-visas-report/visa-request-visas-report.twig", {
+    'visaRequest': visaRequestVisasReport.data,
+  });
+});
+
+app.get("/visa-request-visas-report-header", (req, res) => {
+  res.render("visa-request-visas-report/visa-request-visas-report-header.twig", {
+    'visaRequest': visaRequestVisasReport.headerData,
+  });
+});
+
+app.get("/visa-request-visas-report-footer", (req, res) => {
+  res.render("visa-request-visas-report/visa-request-visas-report-footer.twig", {});
+});
+
 
 app.get("/notice", (req, res) => {
   res.render("notice.twig", {});
